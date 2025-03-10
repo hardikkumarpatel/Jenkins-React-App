@@ -1,29 +1,26 @@
 pipeline {
     agent any
     stages {
-        stage('Hello') {
-           steps {
-             echo 'Hello ✋🏻'
-           }
-        }
-        stage('Build') {
+        stage('Checkout Latest Code') {
             steps {
-              echo "Building..."
+                    sh 'git checkout master' // Ensure we are on master branch
+                    sh 'git pull origin master' // Pull latest code from remote
+            }
+        }
+        stage('Clean Previous Build') {
+            steps {
+                    sh 'rm -rf build' // Remove old build directory
+            }
+        }
+        stage('Install Dependencies & Build') {
+            steps {
+                    sh 'yarn'  // Install dependencies
+                    sh 'yarn run build' // Build the project
             }
         }
         stage('Deploy') {
-            steps {
-              echo "Deploying..."
-            }
-        }
-        stage('Test') {
-            steps {
-              echo "Testing..."
-            }
-        }
-        stage('Release') {
-            steps {
-              echo "Releasing..."
+            steps { 
+              echo "Deployed successfully..." 
             }
         }
     }
