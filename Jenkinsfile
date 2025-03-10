@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Latest Code') {
             steps {
-                echo "Inside the checkout...";
+                script { echo "Inside the checkout stage..." }
                 dir('/root/var/www/html/React-App-Demo') {
                     sh 'git checkout master' // Ensure we are on master branch
                     sh 'git pull origin master' // Pull latest code from remote
@@ -11,7 +11,7 @@ pipeline {
             }
         }
         stage('Clean Previous Build') {
-            echo "Inside the clean build...";
+            script { echo "Inside the clean build stage..." }
             steps {
                 dir('/root/var/www/html/React-App-Demo') {
                     sh 'rm -rf build' // Remove old build directory
@@ -19,7 +19,7 @@ pipeline {
             }
         }
         stage('Install Dependencies & Build') {
-            echo "Inside the build installation...";
+            script { echo "Inside the build installation stage..." }
             steps {
                 dir('/root/var/www/html/React-App-Demo') {
                     sh 'yarn'  // Install dependencies
@@ -27,11 +27,8 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy') {
-        //     steps {
-        //         // sh 'pm2 restart admin' // Restart the PM2 process for the project
-        //         // sh 'cp -r /var/www/html/React-App-Demo/build /var/www/React-App-Demo' // Copy new build to deployment directory
-        //     }
-        // }
+        stage('Deploy') {
+            script { echo "Inside the deployment stage..." }
+        }
     }
 }
