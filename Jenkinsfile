@@ -24,11 +24,11 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
-            steps {
-                // sh 'pm2 restart admin' // Restart the PM2 process for the project
-                // sh 'cp -r /var/www/html/Admin-Dashboard/build /var/www/Admin-Dashboard' // Copy new build to deployment directory
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         // sh 'pm2 restart admin' // Restart the PM2 process for the project
+        //         // sh 'cp -r /var/www/html/Admin-Dashboard/build /var/www/Admin-Dashboard' // Copy new build to deployment directory
+        //     }
+        // }
     }
 }
