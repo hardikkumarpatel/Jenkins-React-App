@@ -3,6 +3,9 @@ pipeline {
     stages {
         stage('Checkout Latest Code') {
             steps {
+               script {
+                    sh 'git config --global --add safe.directory "/var/lib/jenkins/workspace/NJP Automation"'
+                }
                     sh 'git checkout master' // Ensure we are on master branch
                     sh 'git pull origin master' // Pull latest code from remote
             }
