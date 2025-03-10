@@ -2,7 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Deploy') {
-            bat 'whoami'
+           steps {
+             bat 'whoami'
+           }
         }
     }
 }
