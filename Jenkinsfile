@@ -3,22 +3,25 @@ pipeline {
     stages {
         stage('Checkout Latest Code') {
             steps {
-                dir('/var/www/html/React-App-Demo') {
+                echo "Inside the checkout...";
+                dir('/root/var/www/html/React-App-Demo') {
                     sh 'git checkout master' // Ensure we are on master branch
                     sh 'git pull origin master' // Pull latest code from remote
                 }
             }
         }
         stage('Clean Previous Build') {
+            echo "Inside the clean build...";
             steps {
-                dir('/var/www/html/React-App-Demo') {
+                dir('/root/var/www/html/React-App-Demo') {
                     sh 'rm -rf build' // Remove old build directory
                 }
             }
         }
         stage('Install Dependencies & Build') {
+            echo "Inside the build installation...";
             steps {
-                dir('/var/www/html/React-App-Demo') {
+                dir('/root/var/www/html/React-App-Demo') {
                     sh 'yarn'  // Install dependencies
                     sh 'yarn run build' // Build the project
                 }
