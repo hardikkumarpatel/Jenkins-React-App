@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps{
-                git url:"https://github.com/hardikkumarpatel/React-App-Demo.git",branch:"master"
+                git url:"https://hardikkumarpatel@github.com/hardikkumarpatel/React-App-Demo.git",branch:"master"
             }
         }
     }
