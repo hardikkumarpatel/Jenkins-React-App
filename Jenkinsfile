@@ -3,14 +3,14 @@ pipeline {
     stages {
          stage("Build") {
                 steps {
-                    sh "sudo yarn"
-                    sh "sudo yarn run build"
+                    sh "yarn"
+                    sh "yarn run build"
                 }
         }
         stage("Deploy") {
                 steps {
-                    sh "sudo rm -rf /root/var/www/html/jenkins-react-app"
-                    sh "sudo cp -r ${WORKSPACE}/build/ /root/var/www/html/jenkins-react-app/"
+                    sh "rm -rf /root/var/www/html/jenkins-react-app"
+                    sh "cp -r ${WORKSPACE}/build/ /root/var/www/html/jenkins-react-app/"
                 }
         }
     }
