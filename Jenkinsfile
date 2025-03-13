@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        NODE_PATH = "/root/.nvm/versions/node/v20.18.2/bin"
+        PATH = "${NODE_PATH}:${PATH}"
+    }
     tools {
       nodejs 'NodeJS'
     }
