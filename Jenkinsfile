@@ -12,7 +12,7 @@ pipeline {
         }
         stage("Deploy") {
                 steps {
-                    sh "rm -rf /root/var/www/html/jenkins-react-app"
+                    sh "mkdir /root/var/www/html/jenkins-react-app"
                     sh "cp -r ${WORKSPACE}/build/ /root/var/www/html/jenkins-react-app/"
                 }
         }
