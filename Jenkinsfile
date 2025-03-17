@@ -29,7 +29,7 @@ pipeline {
                         sh "pm2 restart ${appName}"
                     } else {
                         echo "No existing PM2 process found. Starting a new one..."
-                        sh "pm2 list serve /var/www/html/jenkins-react-app/ 3005 --span --name ${appName}"
+                        sh "pm2 list serve /var/www/html/jenkins-react-app/build 3005 --spa --name ${appName}"
                     }
                 }
             }
