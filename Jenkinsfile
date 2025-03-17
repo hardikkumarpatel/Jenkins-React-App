@@ -22,6 +22,8 @@ pipeline {
             steps {
                 script {
                     def appName = "jenkins-react-app"
+                    sh "sudo pm2 list"
+                    
                     def pm2Check = sh(script: "pm2 list | grep ${appName}", returnStatus: true)
 
                     if (pm2Check == 0) {
