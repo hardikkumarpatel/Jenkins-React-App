@@ -14,7 +14,7 @@ pipeline {
         stage("Deploy") {
                 steps {
                     echo "Deployment...."
-                    sh "mkdir -p /var/www/html/jenkins-react-app"
+                    sh "sudo mkdir -p /root/var/www/html/jenkins-react-app"
                     sh "chown -R jenkins:jenkins /var/www/html/jenkins-react-app"
                     sh "chmod -R 755 /var/www/html/jenkins-react-app"
                     sh "cp -r ${WORKSPACE}/build/ /var/www/html/jenkins-react-app/"
